@@ -29,6 +29,11 @@ describe("Station", function() {
     it("shows the user the bike that has been docked", function() {
       expect(station.dockBike(bike)).toEqual(bike);
     });
+
+    it("does not accept more bikes than the station capacity", function() {
+      station.dockBike(bike);
+      expect(function() {station.dockBike(bike)}).toThrow(new Error (station.StationFullError));
+    });
   });
 
 
