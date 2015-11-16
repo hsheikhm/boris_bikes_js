@@ -12,5 +12,13 @@ describe("Bike", function() {
     });
   });
 
+  describe("#broken", function() {
+
+    it("reports the bike as broken", function() {
+      bike.broken();
+      expect(bike.isWorking()).toEqual(false);
+    });
+  });
+
 
 });
