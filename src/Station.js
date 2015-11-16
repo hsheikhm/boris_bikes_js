@@ -1,8 +1,8 @@
-function Station() {
+function Station(capacity) {
   this.noBikeError = "No Bikes available";
   this.stationFullError = "Station is full";
   this.defaultCapacity = 20;
-  this.capacity = this.defaultCapacity;
+  this.capacity = capacity || this.defaultCapacity;
 }
 
 Station.prototype.dockBike = function(bike) {

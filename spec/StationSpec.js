@@ -4,13 +4,18 @@ describe("Station", function() {
 
   beforeEach(function() {
     bike = {};
-    station = new Station(bike);
+    station = new Station();
   });
 
   describe("when instantiated", function() {
 
     it("has a #DefaultCapacity of 20 bikes", function() {
       expect(station.capacity).toEqual(station.defaultCapacity);
+    });
+
+    it("can have a specified capacity", function() {
+      var station1 = new Station(40);
+      expect(station1.capacity).toEqual(40);
     });
   });
 
