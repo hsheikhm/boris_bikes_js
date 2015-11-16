@@ -7,6 +7,13 @@ describe("Station", function() {
     station = new Station(bike);
   });
 
+  describe("when instantiated", function() {
+
+    it("has a #DefaultCapacity of 20 bikes", function() {
+      expect(station.capacity).toEqual(station.defaultCapacity);
+    });
+  });
+
   describe("#releaseBike", function() {
 
     it("releases a bike from the station", function() {
@@ -15,7 +22,7 @@ describe("Station", function() {
     });
 
     it("does not release a bike when there is none available", function() {
-      expect(function() {station.releaseBike()}).toThrow(new Error (station.NoBikeError));
+      expect(function() {station.releaseBike();}).toThrow(new Error (station.noBikeError));
     });
   });
 
@@ -32,10 +39,7 @@ describe("Station", function() {
 
     it("does not accept more bikes than the station capacity", function() {
       station.dockBike(bike);
-      expect(function() {station.dockBike(bike)}).toThrow(new Error (station.StationFullError));
+      expect(function() {station.dockBike(bike);}).toThrow(new Error (station.stationFullError));
     });
   });
-
-
-
 });
