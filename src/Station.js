@@ -1,6 +1,9 @@
-function Station(bike) {
-  this.bike = typeof bike === 'undefined' ? new Bike() : bike;
+function Station() {
 }
+
+Station.prototype.dockBike = function(bike) {
+  this.bike = bike;
+};
 
 Station.prototype.releaseBike = function() {
   return this.bike;
