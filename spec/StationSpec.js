@@ -8,13 +8,19 @@ describe("Station", function() {
   });
 
   describe("#releaseBike", function() {
+
     it("releases a bike from the station", function() {
       station.dockBike(bike);
       expect(station.releaseBike()).toEqual(bike);
     });
+
+    it("does not release a bike when there is none available", function() {
+      expect(function() {station.releaseBike()}).toThrow(new Error (station.NoBikeError));
+    });
   });
 
   describe("#dockBike", function() {
+
     it("docks a bike into the station", function() {
       station.dockBike(bike);
       expect(station.bike).toEqual(bike);
